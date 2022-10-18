@@ -19,6 +19,10 @@ describe('CreateUserService', () => {
         createUser = new CreateUserService()
     })
 
+    // it('test description', () => {
+    //     expect(1).toBe(1)
+    // })
+
     it('should register a new user', async () => {
         const user: User = await createUser.execute({ name, email, password })
 

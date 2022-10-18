@@ -4,7 +4,7 @@
     "description": "",
     "main": "server.js",
     "scripts": {
-        "test": "NODE_ENV=test && npx sequelize-cli db:migrate:undo:all && npx sequelize-cli db:migrate && jest --passWithNoTests --runInBand --detectOpenHandles --forceExit",
+        "test": "NODE_ENV=test npx sequelize-cli db:migrate:undo:all && NODE_ENV=test npx sequelize-cli db:migrate && jest --passWithNoTests --runInBand --detectOpenHandles --forceExit",
         "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/server.ts",
         "db:migrate": "npx sequelize-cli db:migrate",
         "db:migrate:undo": "npx sequelize-cli db:migrate:undo",

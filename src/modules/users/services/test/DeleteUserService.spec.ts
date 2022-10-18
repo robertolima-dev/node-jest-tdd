@@ -22,6 +22,10 @@ describe('DeleteUserService', () => {
         deleteUser = new DeleteUserService()
     })
 
+    // it('test description', () => {
+    //     expect(1).toBe(1)
+    // })
+
     it('should delete a user by id', async () => {
         const user: User = await createUser.execute({ name, email, password })
         const id = user.id

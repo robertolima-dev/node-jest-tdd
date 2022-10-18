@@ -22,6 +22,10 @@ describe('UpdateUserService', () => {
         updateUser = new UpdateUserService()
     })
 
+    // it('test description', () => {
+    //     expect(1).toBe(1)
+    // })
+
     it('should update a user by id', async () => {
         const newUser: User = await createUser.execute({ name, email, password })
         const id = newUser.id
@@ -32,6 +36,22 @@ describe('UpdateUserService', () => {
         expect(user.id).not.toBeNull()
         expect(typeof user).toBe('object')
         expect(user.name).toEqual(newName)
+    })
+
+    it('should return 409 for repeated email', async () => {
+
+        await createUser.execute({ name, email: 'email-teste@gmail.com', password })
+        const newUser: User = await createUser.execute({ name, email: 'robertolima+update02@gmail.com', password })
+
+        try {
+            await updateUser.execute({ id: newUser.id, email: 'email-teste@gmail.com' })
+        } catch (error: any) {
+
+            // testes
+            expect(error.message).toBe('Email is already in use!')
+            expect(error).toBeInstanceOf(AppError)
+            expect(error.statusCode).toBe(409)
+        }
     })
 
     it('should return 404 for user not found', async () => {

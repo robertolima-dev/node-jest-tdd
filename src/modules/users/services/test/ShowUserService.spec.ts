@@ -21,6 +21,10 @@ describe('ShowUserService', () => {
         showUser = new ShowUserService()
     })
 
+    // it('test description', () => {
+    //     expect(1).toBe(1)
+    // })
+
     it('should show a user by id', async () => {
         const newUser: User = await createUser.execute({ name, email, password })
         const id = newUser.id

@@ -42,11 +42,11 @@ export default class UsersController {
     public async update(request: Request, response: Response): Promise<Response> {
 
         const { id } = request.params
-        const { name } = request.body
+        const { name, email } = request.body
 
         const updateUser = new UpdateUserService();
 
-        const user = await updateUser.execute({ id, name });
+        const user = await updateUser.execute({ id, name, email });
 
         return response.json(user)
     }
