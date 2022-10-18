@@ -1,38 +1,32 @@
-# API Restful com Node.js, Express, Typescript, Sequelize, Redis e Jest
+# API Restful com Node.js, Express, Typescript, Sequelize e Jest
 
 Node versão 16.13.0
 
-## Rodando a aplicação localmente
+## Clonando a aplicação
 
 Clone o projeto:
 
 ```
-$ git clone git@github.com:robertolima-dev/node-jest-teste.git
+$ git clone git@github.com:robertolima-dev/node-jest-tdd.git
 ```
+
+## Configurando DATABASE
+
+Crie um banco chamado tdd e outro chamado tdd-teste
+
+## Rodando o primeiro teste
 
 Configure o arquivo .env utilizando o exemplo .env.example:
 
 ```
-$ cd node-jest-teste
+$ cd node-jest-tdd
 
 $ npm install
-
-$ npm run db:migrate
 
 $ npm run test
 ```
 
-Inicie o Redis com o comando docker abaixo:
-
-```
-docker run --name redis -p 6379:6379 -d -t redis:alpine
-```
-
-Inicie o RedisInsight com o comando docker abaixo:
-
-```
-docker run --name redis-client -v redisinsight:/db -p 8001:8001 -d -t redislabs/redisinsight:latest
-```
+## Rodando a aplicação local
 
 Inicie a aplicação:
 
